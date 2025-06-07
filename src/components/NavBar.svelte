@@ -97,10 +97,11 @@
 
 <div class="navbar">
   <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div class="hamburger-menu {showMenu ? 'open' : ''}" on:click={toggleMenu}>
-    <div class="hamburger-line line-1" />
-    <div class="hamburger-line line-2" />
-    <div class="hamburger-line line-3" />
+    <div class="hamburger-line line-1"></div>
+    <div class="hamburger-line line-2"></div>
+    <div class="hamburger-line line-3"></div>
   </div>
   <div class="logo">
     <a href="/">
@@ -117,27 +118,28 @@
     </nav>
   </div>
   <div class="lastfm">
-    <a href="https://fm.jonasjones.dev">
-      <span class="link" />
+    <a href="https://fm.jonasjones.dev" aria-label="Last.fm Profile">
+      <span class="link"></span>
     </a>
     <div class="lastfmlogoclass" id="lastfm_logo">
       <img src="" alt=" " class="lastfmlogooverlay" id="lastfm_logo_overlay" />
     </div>
 
     <div class="lastfm-text">
-      <p id="lastfm_title" />
-      <p id="lastfm_artist" />
+      <p id="lastfm_title"></p>
+      <p id="lastfm_artist"></p>
     </div>
   </div>
   <div class="navigation-menu {showMenu ? 'show' : ''}">
     <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div
       class="hamburger-menu close-button {showMenu ? 'open' : ''}"
       on:click={toggleMenu}
     >
-      <div class="hamburger-line line-1" />
-      <div class="hamburger-line line-2" />
-      <div class="hamburger-line line-3" />
+      <div class="hamburger-line line-1"></div>
+      <div class="hamburger-line line-2"></div>
+      <div class="hamburger-line line-3"></div>
     </div>
     <ul class="links">
       {#each navLinks as link}

@@ -67,6 +67,7 @@
   }
   // use onmount to fetch projects from https://cdn.jonasjones.dev/api/projects/projects.json
   onMount(async () => {
+    console.log("Fetching projects...");
     const res = await fetch(
       "https://cdn.jonasjones.dev/api/projects/projects.json"
     );
@@ -92,7 +93,7 @@
         placeholder="Search projects"
         on:input={handleSearchText}
       />
-      <i class="fa fa-folder-open" aria-hidden="true" />
+      <i class="fa fa-folder-open" aria-hidden="true"></i>
       <select name="category" id="category" on:change={handleSearchCategory}>
         <option value="">All</option>
         <optgroup label="Minecraft">
@@ -111,7 +112,7 @@
           <option value="lib">Library</option>
         </optgroup>
       </select>
-      <i class="fa fa-globe" aria-hidden="true" />
+      <i class="fa fa-globe" aria-hidden="true"></i>
       <select name="language" id="language" on:change={handleSearchLang}>
         <option value="">All</option>
         <option value="clang">C</option>
@@ -128,7 +129,7 @@
         <option value="ps2">PowerShell 2</option>
         <option value="godot">Godot Lang</option>
       </select>
-      <i class="fa fa-tasks" aria-hidden="true" />
+      <i class="fa fa-tasks" aria-hidden="true"></i>
       <select name="status" id="status" on:change={handleSearchStatus}>
         <option value="">All</option>
         <option value="planned">Planned</option>

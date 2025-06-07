@@ -13,21 +13,21 @@
       rel="noopener noreferrer"
     >
       {#if platform === "GH"}
-        <i class="fa fa-github" aria-hidden="true" />
+        <i class="fa fa-github" aria-hidden="true"></i>
       {:else if platform === "WB"}
-        <i class="fa fa-globe" aria-hidden="true" />
+        <i class="fa fa-globe" aria-hidden="true"></i>
       {:else if platform === "YT"}
-        <i class="fa fa-youtube" aria-hidden="true" />
+        <i class="fa fa-youtube" aria-hidden="true"></i>
       {:else if platform === "TW"}
-        <i class="fa fa-twitter" aria-hidden="true" />
+        <i class="fa fa-twitter" aria-hidden="true"></i>
       {:else if platform === "DC"}
-        <i class="fa fa-discord" aria-hidden="true" />
+        <i class="fa fa-discord" aria-hidden="true"></i>
       {:else if platform === "PT"}
-        <i class="fa fa-patreon" aria-hidden="true" />
+        <i class="fa fa-patreon" aria-hidden="true"></i>
       {:else if platform === "SP"}
-        <i class="fa fa-spotify" aria-hidden="true" />
+        <i class="fa fa-spotify" aria-hidden="true"></i>
       {:else if platform === "IG"}
-        <i class="fa fa-instagram" aria-hidden="true" />
+        <i class="fa fa-instagram" aria-hidden="true"></i>
       {:else}
         {platform}
       {/if}

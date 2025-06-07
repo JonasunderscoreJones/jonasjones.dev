@@ -6,8 +6,8 @@
 
     import { language_colors } from "../scripts/langs";
 
-    let languageLength = Object.values(project.languages).reduce(
-        (acc, curr) => acc + curr,
+    let languageLength = (Object.values(project.languages) as number[]).reduce(
+        (acc: number, curr: number) => acc + curr,
         0
     );
 </script>
@@ -17,7 +17,7 @@
         <div
             class="language-color"
             style="background-color: {language_colors[
-                language
+                language as keyof typeof language_colors
             ]}; width: {(project.languages[language] / languageLength) * 100}%"
         >
             <p>{language}</p>

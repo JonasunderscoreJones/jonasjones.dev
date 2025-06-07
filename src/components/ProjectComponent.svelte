@@ -19,7 +19,7 @@
 </div>
 <div class="bottom">
     <div class="content">
-        <div />
+        <div></div>
         <div class="project-topline">
             <div class="project-title">{project.title}</div>
             <div class="project-titleinfo">

@@ -25,12 +25,10 @@
   </div>
   <div class="social-media">
     <div class="row">
-      <a href="https://github.com/JonasunderscoreJones"><i class="fab fa-github" /></a>
-      <a href="https://www.youtube.com/channel/UCVIxvKBIMSMgurYS8pK7fSg"
-        ><i class="fab fa-youtube" /></a
-      >
-      <a href="https://discord.gg/V2EsuUVmWh"><i class="fab fa-discord" /></a>
-      <a href="mailto:me@jonasjones.dev"><i class="fas fa-envelope" /></a>
+      <a href="https://github.com/JonasunderscoreJones" aria-label="github-link"><i class="fab fa-github"></i></a>
+      <a href="https://www.youtube.com/channel/UCVIxvKBIMSMgurYS8pK7fSg" aria-label="youtube-link"><i class="fab fa-youtube"></i></a>
+      <a href="https://discord.gg/V2EsuUVmWh" aria-label="discord-link"><i class="fab fa-discord"></i></a>
+      <a href="mailto:me@jonasjones.dev" aria-label="email-link"><i class="fas fa-envelope"></i></a>
     </div>
   </div>
 </ParallaxBg>

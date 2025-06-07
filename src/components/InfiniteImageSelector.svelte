@@ -1,5 +1,11 @@
-<script>
-  let images = [];
+<script lang="ts">
+  interface Image {
+    id: number;
+    src: string;
+    property: string;
+  }
+
+  let images: Image[] = [];
   let selectedSquares = new Set();
   let loading = false;
 
@@ -35,7 +41,7 @@
     }, 1000);
   };
 
-  const toggleSquareSelection = (image) => {
+  const toggleSquareSelection = (image: Image) => {
     if (selectedSquares.has(image.id)) {
       selectedSquares.delete(image.id);
     } else {
@@ -58,6 +64,8 @@
 
 <div class="grid">
   {#each images as image}
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
     <img
       class="image {selectedSquares.has(image.id) ? 'selected' : ''}"
       src={image.src}
