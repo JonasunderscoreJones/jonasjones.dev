@@ -6,8 +6,6 @@
   import Padding from "../../components/padding.svelte";
   import ProjectComponent from "../../components/ProjectComponent.svelte";
 
-  // import './+page.css';
-
   export let data: {
     projects: Project[];
   };
