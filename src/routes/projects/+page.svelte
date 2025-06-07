@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-
   import FontAwesome from "../../components/FontAwesome.svelte";
   import Footer from "../../components/Footer.svelte";
   import NavBar from "../../components/NavBar.svelte";
@@ -8,76 +6,65 @@
   import Padding from "../../components/padding.svelte";
   import ProjectComponent from "../../components/ProjectComponent.svelte";
 
-  //import projects from "./projects.json";
+  import './+page.css';
 
-  import "../../routes/+page.css";
+  export let data: {
+    projects: Project[];
+  };
 
-  let projects = [];
+  interface Project {
+    title: string;
+    description: string;
+    categories: string[];
+    languages: { [key: string]: any };
+    status: string;
+    visible: boolean;
+  }
 
-  var searchResults = projects.filter((project) => {
-    return project.visible === true;
-  });
+  let projects: Project[] = data.projects ?? [];
+  let searchResults: Project[] = projects.filter(p => p.visible);
 
-  let projects_loading = "block";
+  let searchtext = "";
+  let searchcategory = "";
+  let searchlanguage = "";
+  let searchstatus = "";
 
-  var searchtext = "";
-  var searchcategory = "";
-  var searchlanguage = "";
-  var searchstatus = "";
-
-  function handleSearchText(event) {
-    console.log(event.target.value)
-    searchtext = event.target.value.toLowerCase();
-    console.log(searchtext);
+  function handleSearchText(event: Event) {
+    searchtext = (event.target as HTMLInputElement).value.toLowerCase();
     handleSearch();
   }
 
-  function handleSearchCategory(event) {
-    searchcategory = event.target.value.toLowerCase();
-    console.log(searchcategory);
+  function handleSearchCategory(event: Event) {
+    searchcategory = (event.target as HTMLSelectElement).value.toLowerCase();
     handleSearch();
   }
 
-  function handleSearchLang(event) {
-    searchlanguage = event.target.value.toLowerCase();
+  function handleSearchLang(event: Event) {
+    searchlanguage = (event.target as HTMLSelectElement).value.toLowerCase();
     handleSearch();
   }
 
-  function handleSearchStatus(event) {
-    searchstatus = event.target.value.toLowerCase();
+  function handleSearchStatus(event: Event) {
+    searchstatus = (event.target as HTMLSelectElement).value.toLowerCase();
     handleSearch();
   }
 
   function handleSearch() {
-    // set searchResults by filtering with searchtext, searchcategory, and searchlanguage
     searchResults = projects.filter((project) => {
-      var text =
-        project.title.toLowerCase() + project.description.toLowerCase();
-      var category = project.categories.join(" ").toLowerCase();
-      var language = Object.keys(project.languages).join(" ").toLowerCase();
-      var status = project.status.toLowerCase();
+      const text = project.title.toLowerCase() + project.description.toLowerCase();
+      const category = project.categories.join(" ").toLowerCase();
+      const language = Object.keys(project.languages).join(" ").toLowerCase();
+      const status = project.status.toLowerCase();
+
       return (
         text.includes(searchtext) &&
         category.includes(searchcategory) &&
         language.includes(searchlanguage) &&
         status.includes(searchstatus) &&
-        project.visible === true
+        project.visible
       );
     });
   }
-  // use onmount to fetch projects from https://cdn.jonasjones.dev/api/projects/projects.json
-  onMount(async () => {
-    console.log("Fetching projects...");
-    const res = await fetch(
-      "https://cdn.jonasjones.dev/api/projects/projects.json"
-    );
-    const data = await res.json();
-    projects = data.slice(1); // remove first element as it is the last_update timestamp of the file
-    searchResults = projects.filter((project) => {
-      return project.visible === true;
-    });
-    projects_loading = "none";
-  });
 </script>
 
 <FontAwesome />
@@ -139,13 +126,17 @@
         <option value="release">Release</option>
         <option value="discontinued">Discontinued</option>
       </select>
-      <!-- svelte-ignore a11y-missing-attribute -->
-      <a style="float: right;margin-right: 10px;margin-top: 10px;"
-        >{searchResults.length} results</a
-      >
+
+      <!-- Replaced <a> with <span> to fix accessibility warning -->
+      <span style="float: right; margin-right: 10px; margin-top: 10px;">
+        {searchResults.length} results
+      </span>
     </div>
+
     <div class="project-container">
-      <h1 style="display:{projects_loading}">Loading...</h1>
+      {#if searchResults.length === 0}
+        <h2>No results found</h2>
+      {/if}
       {#each searchResults as project}
         <div class="project">
           <ProjectComponent {project} />
@@ -156,67 +147,3 @@
   </div>
   <Footer />
 </ParallaxBg>
-
-<style>
-  /* Import Font Awesome for social media icons */
-  @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
-  .container {
-    width: 90%;
-  }
-
-  .project-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(530px, 1fr));
-    gap: 20px;
-    width: 100%;
-  }
-
-  .project {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    border: 2px solid var(--project-border-color);
-    min-width: 530px;
-    background-color: var(--background-color);
-  }
-
-  .search-bar {
-    margin-bottom: 20px;
-    background-color: var(--project-search-background-color);
-    padding: 10px;
-    border-radius: 5px;
-  }
-
-  .search-bar input {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: var(--project-search-input-font-color);
-    font-size: 20px;
-    width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
-    text-align: center;
-  }
-
-  .search-bar select {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: var(--project-search-input-font-color);
-    font-size: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  @media only screen and (max-width: 620px) {
-    .project-container {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-
-    .project {
-      min-width: 200px;
-    }
-  }
-</style>
