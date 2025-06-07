@@ -18,6 +18,13 @@
     categories: string[];
     languages: { [key: string]: any };
     status: string;
+    statuscolor: string;
+    version: string;
+    backgroud: string;
+    links: { [key: string]: string };
+    image: string;
+    icon: string;
+    kanban: string;
     visible: boolean;
   }
 
@@ -165,7 +172,6 @@
     position: relative;
     border-radius: 8px;
     overflow: hidden;
-    cursor: pointer;
     border: 2px solid var(--project-border-color);
     min-width: 530px;
     background-color: var(--background-color);
