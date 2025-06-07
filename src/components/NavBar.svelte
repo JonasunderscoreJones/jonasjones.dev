@@ -117,6 +117,11 @@
       </ul>
     </nav>
   </div>
+  <div class="logo" style="opacity: 0">
+    <a href="/">
+      <img src="/icon_80x80.webp" alt="Logo" class="logo" />
+    </a>
+  </div>
   <div class="lastfm">
     <a href="https://fm.jonasjones.dev" aria-label="Last.fm Profile">
       <span class="link"></span>
@@ -310,16 +315,20 @@
     align-items: right;
     float: right;
     display: flex;
-    position: relative;
+    position: absolute;
+    top: 0;
+    right: 0;
     right: 3px;
     top: 3.5px;
     border-radius: 5px;
     max-width: 300px;
     height: 43px;
     overflow: hidden;
+    transition: margin-right 0.3s ease-in-out;
   }
   .lastfm:hover {
     background-color: var(--header-background-color-hover);
+    margin-right: 15px;
   }
   .lastfm img {
     width: 30px;
@@ -359,13 +368,16 @@
     align-self: center;
   }
   .lastfm-text {
-    display: none;
-    transition: width 0.3s ease-out;
-  }
+    display: block;
+    max-width: 0;
+    transition: max-width 0.3s ease-in-out;
+    overflow: hidden;
+    white-space: nowrap;
+}
 
-  .lastfm:hover .lastfm-text {
-    display:block
-  }
+.lastfm:hover .lastfm-text {
+    max-width: 500px;
+}
 
   .link {
     position: absolute;
@@ -396,7 +408,7 @@
 
   @media only screen and (max-width: 650px) and (min-width: 375px) {
     .lastfm-text {
-      display: block;
+      max-width: 500px;
     }
     .nav-links {
       display: none;
@@ -416,6 +428,7 @@
   @media only screen and (max-width: 375px) and (min-width: 300px) {
     .lastfm {
       width: 50px;
+      margin-right: 15px;
     }
     .nav-links {
       display: none;
@@ -431,6 +444,7 @@
   @media only screen and (max-width: 300px) and (min-width: 0px) {
     .lastfm {
       width: 50px;
+      margin-right: 15px;
     }
     .nav-links {
       display: none;
