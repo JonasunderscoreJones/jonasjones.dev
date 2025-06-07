@@ -33,7 +33,7 @@
                     >
                         {project.status}
                     </span>
-                    <span class="project-version">{project.version}</span>
+                    <span class="project-version">{project.version ? project.version : "-"}</span>
                 </div>
             </div>
         </div>
@@ -70,10 +70,11 @@
         margin-left: 10px;
         margin-right: 10px;
         margin-top: -4px;
-        padding: 2px;
+        padding: 2px 10px;
         border: 3px solid var(--project-version-color);
         border-radius: 100px;
         float: right;
+        min-width: 70px;
     }
 
     .project-description {
