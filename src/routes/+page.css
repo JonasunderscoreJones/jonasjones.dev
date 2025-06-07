@@ -188,6 +188,15 @@ a:hover {
   opacity: 1;
 }
 
+.all-links-button {
+  padding: 0.5rem 1rem;
+  color: var(--header-font-color);
+  transition: color 0.3s ease;
+  font-size: 2rem;
+  position: absolute;
+  bottom: 50px;
+}
+
 .card-front,
 .card-back {
   position: absolute;
