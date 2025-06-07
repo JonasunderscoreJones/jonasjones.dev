@@ -12,7 +12,8 @@
 
 :root {
   --background-color: #202324;
-  --font-color: rgb(0, 255, 0);
+  /*--font-color: rgb(0, 255, 0);*/
+  --font-color: lightgray;
   --font-hover-color: green;
   --header-background-color: rgba(0, 0, 0, 0.4);
   --header-background-color-hover: #202324;
@@ -114,9 +115,77 @@ a:hover {
 
 .image-wrapper {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 75%;
   perspective: 800px;
+  /* elements inside should be next to each other */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+}
+
+.image-wrapper h1 {
+  padding-left: 20px;
+  font-size: 6rem;
+  color: var(--header-font-color);
+}
+
+.hr-sub-header-line {
+  width: 50rem;
+  height: 1px;
+  margin: 2rem 0;
+  margin-top: -3.5rem;
+}
+
+.hr-line {
+  width: 30rem;
+  height: 1px;
+  margin: 2rem 0;
+}
+
+.quick-links a i {
+  color: var(--font-color);
+  text-decoration: none;
+  font-size: 5rem;
+  margin: 0 1rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.quick-links a:hover i {
+  color: var(--font-hover-color);
+}
+
+.quick-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.quick-links a {
+  text-decoration: none;
+  color: var(--font-color);
+  text-align: center;
+  margin: 0 1rem;
+  position: relative;
+  padding-top: 4rem;
+}
+
+.quick-links a:hover {
+  padding-top: 0;
+}
+
+.quick-links a p {
+  opacity: 0;
+  font-size: 1.2rem;
+  color: var(--font-color);
+  margin-top: 0.5rem;
+  transition: all 0.5s ease;
+}
+
+.quick-links a:hover p {
+  opacity: 1;
 }
 
 .card-front,

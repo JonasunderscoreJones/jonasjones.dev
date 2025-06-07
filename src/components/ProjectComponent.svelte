@@ -10,6 +10,9 @@
 
 <div class="top">
     <img class="image" src="/project-banners{project.backgroud}" alt=" " />
+    {#if project.kanban}
+        <a href={project.kanban} class="project-kanban"><img class="project-kanban-image" src="/kanban.png" alt="Kanban Icon" /></a>
+    {/if}
 </div>
 <div class="project-languages">
     <ProjectLanguageIndicator {project} />
@@ -127,6 +130,19 @@
     .project-titleinfo {
         display: flex;
         align-items: center;
+    }
+
+    .project-kanban {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+
+    .project-kanban-image {
+        width: 40px;
+        height: 40px;
+        filter: invert(1);
     }
 
     @media only screen and (max-width: 620px) {
