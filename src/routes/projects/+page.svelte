@@ -6,7 +6,7 @@
   import Padding from "../../components/padding.svelte";
   import ProjectComponent from "../../components/ProjectComponent.svelte";
 
-  import './+page.css';
+  // import './+page.css';
 
   export let data: {
     projects: Project[];
@@ -147,3 +147,66 @@
   </div>
   <Footer />
 </ParallaxBg>
+
+
+<style>
+  .container {
+    width: 90%;
+}
+
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(530px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.project {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid var(--project-border-color);
+    min-width: 530px;
+    background-color: var(--background-color);
+}
+
+.search-bar {
+    margin-bottom: 20px;
+    background-color: var(--project-search-background-color);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.search-bar input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--project-search-input-font-color);
+    font-size: 20px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+}
+
+.search-bar select {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--project-search-input-font-color);
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+@media only screen and (max-width: 620px) {
+    .project-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .project {
+    min-width: 200px;
+    }
+}
+</style>
