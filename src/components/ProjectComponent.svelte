@@ -11,7 +11,7 @@
 <div class="top">
     <img class="image" src="/project-banners{project.backgroud}" alt=" " />
     {#if project.kanban}
-        <a href={project.kanban} class="project-kanban"><img class="project-kanban-image" src="/kanban.png" alt="Kanban Icon" /></a>
+        <a href={project.kanban} target="_blank" class="project-kanban"><img class="project-kanban-image" src="/kanban.png" alt="Kanban Icon" /></a>
     {/if}
 </div>
 <div class="project-languages">
