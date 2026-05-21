@@ -1,5 +1,5 @@
 <div class="footer">
-  <p id="footer-inner">Website by Jonas_Jones 2021 - 20##</p>
+  <p id="footer-inner">Website by Jonas_Jones 2021 - 2026</p>
 </div>
 
 <script>
