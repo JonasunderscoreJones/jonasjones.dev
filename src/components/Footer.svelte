@@ -1,10 +1,11 @@
 <div class="footer">
-  <p>Website by Jonas_Jones 2021 - 2024</p>
+  <p id="footer-inner">Website by Jonas_Jones 2021 - 2026</p>
 </div>
 
 <script>
   //import main css file
   import "../routes/+page.css";
+  document.getElementById("footer-inner").innerHTML = "Website by Jonas_Jones 2021 - " + new Date().getFullYear();
 </script>
 
 <style>
